@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   pushBackForce: 15
-  jeda: 2
+  jeda: 0.5
 --- !u!114 &8996323283895743495
 MonoBehaviour:
   m_ObjectHideFlags: 0

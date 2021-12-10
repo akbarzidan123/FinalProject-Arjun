@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public Health health;
+    public GameObject gameOverPanel;
     void Start()
     {
         
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOverPanel.SetActive(true);
         health.gameObject.SetActive(false);
         Debug.Log("YOU LOSE!!");
     }
