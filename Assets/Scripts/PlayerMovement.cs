@@ -6,11 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float spd;
     [SerializeField] private float jumpPower;
+    public static bool NotAttacekd = true;
     private Rigidbody2D rb;
     private Animator anim;
     private bool leftPress;
     private bool rightPress;
-    private bool grounded; 
+    [HideInInspector]
+    public bool grounded; 
+    // private float spdStop=0;
     private void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,11 +21,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update() 
     {
-        if(leftPress)
+        if(leftPress && NotAttacekd)
         {
             MoveLeft();
         }
-        else if(rightPress)
+        else if(rightPress && NotAttacekd)
         {
             MoveRight();
         }
@@ -30,23 +33,23 @@ public class PlayerMovement : MonoBehaviour
     
     public void LeftPressed()
     {
-        Debug.Log("Kiri diteken");
+        // Debug.Log("Kiri diteken");
         leftPress = true;
     }
     public void LeftNotPressed()
     {
         anim.SetBool("WALK", false);
-        Debug.Log("Kiri gak diteken");
+        // Debug.Log("Kiri gak diteken");
         leftPress = false;
     }
     public void RightPressed()
     {
-        Debug.Log("Kanan diteken");
+        // Debug.Log("Kanan diteken");
         rightPress = true;
     }
     public void RightNotPressed()
     {
-        Debug.Log("Kanan gak diteken");
+        // Debug.Log("Kanan gak diteken");
         anim.SetBool("WALK", false);
         rightPress = false;
     }
@@ -100,4 +103,6 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
+
+
 }

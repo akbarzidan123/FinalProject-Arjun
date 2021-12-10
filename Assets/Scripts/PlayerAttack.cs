@@ -7,11 +7,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float reloadTime;
     [SerializeField] private Transform arrowLoc;
     [SerializeField] private GameObject[] arrows;
+    [SerializeField] private PlayerMovement isJump;
     private Animator anim;
     private float cooldownTimer = Mathf.Infinity;
     private void Awake() 
     {
-        
         anim = GetComponent<Animator>();
     }
 
@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Mathf.Floor(cooldownTimer) == 1)
         {
-            Debug.Log("Stop ATtack");
+            // Debug.Log("Stop ATtack");
             anim.SetBool("ATTACK",false);
         }
         cooldownTimer += Time.deltaTime;
@@ -27,7 +27,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-
+        if(!isJump.grounded)
+        {
+            anim.SetBool("JUMP",false);
+        }
         if(cooldownTimer > reloadTime)
         {
             anim.SetBool("ATTACK", true);

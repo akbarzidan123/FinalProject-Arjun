@@ -5,13 +5,16 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float spdProjectile;
+    public float ArrowDamage;
     private float direction;
+    private enemyHealth eHealth;
     private float projectTime;
     private bool hit;
     private BoxCollider2D box;
 
     private void Awake() 
     {
+        /*eHealth = GetComponent<enemyHealth>();*/
         box = GetComponent<BoxCollider2D>();
     }
     private void Update() 
@@ -32,10 +35,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        Debug.Log("NABARK");
-        hit = true;
-        deactiveArrow();
-        box.enabled = false;
+        if(other.tag == "Enemy" && other.gameObject.layer == LayerMask.NameToLayer("ShooEnemy"))
+        {
+            enemyHealth ehealth = other.gameObject.GetComponent<enemyHealth>();
+            //Debug.Log("NABARK");
+            hit = true;
+            deactiveArrow();
+            ehealth.addDamage(ArrowDamage);
+            box.enabled = false;
+        }
     }
 
     public void setDirection(float _direct)
