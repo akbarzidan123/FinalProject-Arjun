@@ -21,11 +21,7 @@ public class enemyMovementController : MonoBehaviour
     bool charging;
     Rigidbody2D enemyRB;
 
-    //for shooting
-    public Transform gunTip;
-    public GameObject bullet;
-    public float fireRate = 0.5f;
-    float nextFire = 0f;
+    
 
 
     // Start is called before the first frame update
@@ -48,7 +44,11 @@ public class enemyMovementController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "GameManager") 
+        {
+            gameObject.SetActive(false);
+        }
+        else if (other.tag == "Player")
         {
             if (facingRight && other.transform.position.x < transform.position.x)
             {
@@ -61,16 +61,16 @@ public class enemyMovementController : MonoBehaviour
             canFlip = false;
             charging = true;
             startChargeTime = Time.time + changeTime;
-        
-            
+
+
         }
 
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        // if (other.tag == "Player")
-        // {
+             if (other.tag == "Player")
+         {
         //     if (startChargeTime < Time.time)
         //     {
         //         //koentjinya
@@ -107,7 +107,7 @@ public class enemyMovementController : MonoBehaviour
 
 
 
-            // }
+             }
         
 
     }

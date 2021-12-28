@@ -74,7 +74,7 @@ public class enemyBird : MonoBehaviour
             enemyRB.AddForce(new Vector2(-1, 0) * enemySpeed);
             enemyAnimator.SetBool("WALK", charging);
             Destroy(gameObject, 0);
-
+            GameManager.remainingMOnster -=1;
         }
 
     }

@@ -114,10 +114,12 @@ public class MovementUlar : MonoBehaviour
             nextFire = Time.time + fireRate;
             if (facingRight)
             {
+                FindObjectOfType<AudioManager>().play("EnemyShoot");
                 Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 0)));
             }
             else if (!facingRight)
             {
+                FindObjectOfType<AudioManager>().play("EnemyShoot");
                 Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, 180f)));
             }
         }

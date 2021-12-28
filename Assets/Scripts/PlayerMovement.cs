@@ -11,50 +11,65 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool leftPress;
     private bool rightPress;
-    [HideInInspector]
-    public bool grounded; 
+    public bool grounded{get;private set;}
+    public AudioManager audioPlayer;
+    //AudioSource audio;
     // private float spdStop=0;
     private void Awake() 
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        //audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
+
+        //GetComponent<AudioSource>().clip = audio.clip;
+
     }
     private void Update() 
     {
         if(leftPress && NotAttacekd)
         {
+            
+                
+            
             MoveLeft();
         }
         else if(rightPress && NotAttacekd)
         {
+            
+                
+            
             MoveRight();
         }
     }
     
     public void LeftPressed()
     {
+        FindObjectOfType<AudioManager>().play("PlayerRunning");
         // Debug.Log("Kiri diteken");
         leftPress = true;
     }
     public void LeftNotPressed()
     {
-        anim.SetBool("WALK", false);
+        audioPlayer.StopPlaying("PlayerRunning");
         // Debug.Log("Kiri gak diteken");
         leftPress = false;
     }
     public void RightPressed()
     {
+        FindObjectOfType<AudioManager>().play("PlayerRunning");
         // Debug.Log("Kanan diteken");
         rightPress = true;
     }
     public void RightNotPressed()
     {
+        audioPlayer.StopPlaying("PlayerRunning");
         // Debug.Log("Kanan gak diteken");
         anim.SetBool("WALK", false);
         rightPress = false;
     }
     public void MoveLeft()
-    {   
+    {
+        
         anim.SetBool("WALK", true);
         Vector2 velocity = rb.velocity;// bikin variable velocity buat nyimpen nilai perpindahan data
         Vector3 leftPosition = transform.localScale; // Memasukkan nilai posisi arah karakter
@@ -65,11 +80,14 @@ public class PlayerMovement : MonoBehaviour
         {
             leftPosition = new Vector3(leftPosition.x * -1, leftPosition.y, leftPosition.z);
             transform.localScale = leftPosition;
-        }          
+        }
+        
     }
 
     public void MoveRight()
-    {   anim.SetBool("WALK", true);
+    {
+        
+        anim.SetBool("WALK", true);
         Vector2 velocity = rb.velocity;// bikin variable velocity buat nyimpen nilai perpindahan data
         Vector3 rightPosition = transform.localScale; // Memasukkan nilai posisi arah karakter
         velocity.x = spd; //Memasukkan nilai spd ke variable velocity (-) kekiri / kebawah
@@ -80,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
             rightPosition = new Vector3(rightPosition.x * -1, rightPosition.y, rightPosition.z);
             transform.localScale = rightPosition;
         }
+        
     }
 
     public void Jump()
@@ -98,8 +117,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
+            
             anim.SetBool("JUMP", false);
-            Debug.Log("Nginjek tanah");
+            //Debug.Log("Nginjek tanah");
             grounded = true;
         }
     }

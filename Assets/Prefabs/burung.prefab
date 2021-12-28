@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4225301704324345616}
   - component: {fileID: 6653559530435085399}
   - component: {fileID: 4225301704324345620}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: burung
   m_TagString: Untagged
   m_Icon: {fileID: 0}

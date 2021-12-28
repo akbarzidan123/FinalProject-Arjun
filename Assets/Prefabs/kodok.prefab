@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8996323283117071289
 Transform:
   m_ObjectHideFlags: 0
@@ -96,9 +96,6 @@ MonoBehaviour:
   enemySpeed: 5
   enemyGraphic: {fileID: 8996323283895743493}
   changeTime: 0.5
-  gunTip: {fileID: 0}
-  bullet: {fileID: 23444883521609274, guid: 1504504c6a0d19f428bd07112182a8be, type: 3}
-  fireRate: 2
 --- !u!1 &8996323283895743493
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   pushBackForce: 15
-  jeda: 0.5
+  jeda: 2
 --- !u!114 &8996323283895743495
 MonoBehaviour:
   m_ObjectHideFlags: 0
