@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject kodok;
     public Health health;
+    [Header("Panel Settings")]
     public GameObject gameOverPanel;
+    public GameObject pausePanel;
+    public GameObject blurPanel;
+    public GameObject OptionPanel;
     public GameObject[] totalMonster;
     public int totalMonsterNumber {get; private set;}
     public static int remainingMOnster;
@@ -33,6 +38,7 @@ public class GameManager : MonoBehaviour
         if (other.tag == "Enemy")
         {
             kodok.SetActive(false);
+            remainingMOnster -= 1;
         }
     }
 
@@ -55,6 +61,39 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        // Time.Delta
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+        blurPanel.SetActive(true);
+    }
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
+        blurPanel.SetActive(false);
+    }
+    public void RestartGame()
+    {
+        Time.timeScale=1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void QuitGame()
+    {
+        // FindObjectOfType<AudioManager>().play("Click");
+        Application.Quit(1);
+    }
+
+    public void OptionOpen()
+    {
+        Time.timeScale = 0;
+        OptionPanel.SetActive(true);
+        blurPanel.SetActive(true);
+    }
+
+    public void OptionClose()
+    {
+        Time.timeScale = 1;
+        OptionPanel.SetActive(false);
+        blurPanel.SetActive(false);
+        pausePanel.SetActive(false);
     }
 }

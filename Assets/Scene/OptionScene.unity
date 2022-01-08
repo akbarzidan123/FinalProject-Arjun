@@ -658,12 +658,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1283912973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e8498cad59e072449f2dc7f698b39c3, type: 3}
+  m_Script: {fileID: 11500000, guid: c6b30a3537f5a204fb83810a47974fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuScene: 0
-  SettingMenu: 1
-  GameMenu: 2
 --- !u!1 &1366774904
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +756,7 @@ Transform:
   m_GameObject: {fileID: 1366774904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.09, y: 0.01, z: -0.32}
-  m_LocalScale: {x: 1.427, y: 1.427, z: 1.427}
+  m_LocalScale: {x: 1.7188215, y: 1.7188215, z: 1.7188215}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -840,7 +838,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1483729902}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1283912975}
+        m_MethodName: Credit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1483729902

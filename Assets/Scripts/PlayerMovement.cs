@@ -50,8 +50,10 @@ public class PlayerMovement : MonoBehaviour
     }
     public void LeftNotPressed()
     {
+        
         audioPlayer.StopPlaying("PlayerRunning");
         // Debug.Log("Kiri gak diteken");
+        anim.SetBool("WALK", false);
         leftPress = false;
     }
     public void RightPressed()

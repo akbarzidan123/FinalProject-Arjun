@@ -48,6 +48,11 @@ public class enemyMovementController : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        else if (other.tag == "Spike")
+        {
+            gameObject.SetActive(false);
+            GameManager.remainingMOnster -= 1;
+        }
         else if (other.tag == "Player")
         {
             if (facingRight && other.transform.position.x < transform.position.x)
