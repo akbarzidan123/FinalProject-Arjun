@@ -8,7 +8,9 @@ public class MainMenu : MonoBehaviour
     [Header("Index Game")]
     public int MainMenuScene;
     public int SettingMenu;
-    public int GameMenu;
+    public int StoryLineAwal;
+    public int LevelSatu;
+    public int LevelDua;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class MainMenu : MonoBehaviour
     public void ToGameScene()
     {
         FindObjectOfType<AudioManager>().play("Click");
-        SceneManager.LoadScene(GameMenu);
+        SceneManager.LoadScene(StoryLineAwal);
     }
     public void ToMainScene()
     {

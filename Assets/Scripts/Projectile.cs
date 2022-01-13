@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
     {
         if(other.tag == "Enemy" && other.gameObject.layer == LayerMask.NameToLayer("ShooEnemy"))
         {
+            
             enemyHealth ehealth = other.gameObject.GetComponent<enemyHealth>();
             //Debug.Log("NABARK");
             hit = true;

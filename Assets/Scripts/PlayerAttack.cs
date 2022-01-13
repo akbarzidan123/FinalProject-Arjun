@@ -45,6 +45,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if(!arrows[i].activeInHierarchy)
             {
+                FindObjectOfType<AudioManager>().play("Arrow");
                 return i;
             }
         }

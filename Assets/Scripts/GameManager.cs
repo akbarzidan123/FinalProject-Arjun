@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject kodok;
     public Health health;
     [Header("Panel Settings")]
+    public GameObject nextwin;
     public GameObject gameOverPanel;
     public GameObject pausePanel;
     public GameObject blurPanel;
@@ -16,18 +17,31 @@ public class GameManager : MonoBehaviour
     public GameObject[] totalMonster;
     public int totalMonsterNumber {get; private set;}
     public static int remainingMOnster;
+    
+
+    public int LevelSatu;
+    public int LevelDua;
+    public int WinStory;
     void Start()
     {
         totalMonsterNumber = totalMonster.Length; 
         remainingMOnster = totalMonster.Length;
+        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            remainingMOnster -= 1;
+        }
+
+        GameWin();
+
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.tag == "Player")
@@ -44,19 +58,39 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        FindObjectOfType<AudioManager>().play("Lose");
         gameOverPanel.SetActive(true);
         health.gameObject.SetActive(false);
         Time.timeScale=0;
+        
         Debug.Log("YOU LOSE!!");
     }
     
     public void GameWin()
     {
         Debug.Log(remainingMOnster);
-        if(remainingMOnster <= 0)
+      
+        
+        if (remainingMOnster <= 0 && SceneManager.GetActiveScene().buildIndex == LevelSatu)
         {
-            Debug.Log("U WIN THE GAME");
+
+            blurPanel.SetActive(true);
+            nextwin.SetActive(true);
+            
+
         }
+        else if (remainingMOnster <= 0 && SceneManager.GetActiveScene().buildIndex == LevelDua)
+        {
+            SceneManager.LoadScene(WinStory);
+        }
+        
+    }
+
+
+    public void Nextwin() 
+    {
+        
+        SceneManager.LoadScene(LevelDua);
     }
 
     public void PauseGame()

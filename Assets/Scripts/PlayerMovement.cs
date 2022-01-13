@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        NotAttacekd = true;
         //audio = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
 
         //GetComponent<AudioSource>().clip = audio.clip;
@@ -29,15 +30,11 @@ public class PlayerMovement : MonoBehaviour
         if(leftPress && NotAttacekd)
         {
             
-                
-            
             MoveLeft();
         }
         else if(rightPress && NotAttacekd)
         {
-            
-                
-            
+
             MoveRight();
         }
     }

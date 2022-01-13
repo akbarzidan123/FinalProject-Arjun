@@ -7,7 +7,9 @@ public class OptionMenu : MonoBehaviour
 {
     [Header("Index Game")]
     public int MainMenuScene;
-    
+    public GameObject next;
+    public GameObject prev;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +27,14 @@ public class OptionMenu : MonoBehaviour
         Application.Quit(1);
     }
    
-    public void Credit()
+    public void CreditNext()
     {
-
+        next.SetActive(true);
+        prev.SetActive(false);
+    }
+    public void CreditPrev()
+    {
+        prev.SetActive(true);
+        next.SetActive(false);
     }
 }

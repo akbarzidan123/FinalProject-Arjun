@@ -50,5 +50,6 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Test dead");
         gameManager.GameOver();
+        
     }
 }
