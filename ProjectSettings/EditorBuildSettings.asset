@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scene/OptionScene.unity
     guid: 7102eafa62c805e45834e1493ae77aca
   - enabled: 1
-    path: Assets/Scene/Gameplay - Stage 1.unity
-    guid: 584de962e1c07a14c9efcae9369641be
-  - enabled: 1
     path: Assets/Scene/Gameplay - Stage 2.unity
     guid: 338a5790a25e6704cbfce3e7e599359f
+  - enabled: 1
+    path: Assets/Scene/Gameplay - Stage 1.unity
+    guid: 584de962e1c07a14c9efcae9369641be
   - enabled: 1
     path: Assets/Scene/WinGameStory.unity
     guid: 5aa4219acf3f89947941f143ccb78f16
