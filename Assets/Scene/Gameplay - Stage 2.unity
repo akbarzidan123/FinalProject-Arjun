@@ -5443,7 +5443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c47dbf030e586c44b021d3831144cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 2
+  spd: 3.5
   jumpPower: 11
   audioPlayer: {fileID: 2102716225}
 --- !u!95 &1206976136
@@ -9793,6 +9793,7 @@ MonoBehaviour:
   LevelSatu: 3
   LevelDua: 2
   WinStory: 4
+  mainMenu: 0
 --- !u!4 &2098477665
 Transform:
   m_ObjectHideFlags: 0
