@@ -10,18 +10,27 @@ public class MainMenu : MonoBehaviour
     public int SettingMenu;
     public int StoryLineAwal;
     public int LevelSatu;
-    public int LevelDua;
+    public int LevelDua{get;private set;}
+
+    public static int toLevel;
     // Start is called before the first frame update
     void Start()
     {
         FindObjectOfType<AudioManager>().play("MenuBackground");
     }
-
-
     public void ToGameScene()
     {
+       
         FindObjectOfType<AudioManager>().play("Click");
-        SceneManager.LoadScene(StoryLineAwal);
+        if(toLevel < 1 )
+        {
+            SceneManager.LoadScene(StoryLineAwal);
+        }
+        else
+        {
+            SceneManager.LoadScene(LevelSatu);
+        }
+        toLevel++;
     }
     public void ToMainScene()
     {
